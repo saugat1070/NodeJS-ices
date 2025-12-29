@@ -108,7 +108,7 @@ for(let i=0;i<9;i++){
 // for in and for of
 // const name = ["ram","shyam","hari"];
 // for (let index in name){ //
-//     console.log(index);
+//     console.log(name[index]);
 // }
 
 // for(let value of name){
@@ -117,7 +117,7 @@ for(let i=0;i<9;i++){
 
 
 // Problem solving + Langauge  
-// while(true){
+// while(1){
 //     console.log("I am checking While loop")
 // }
 
@@ -131,13 +131,13 @@ for(let i=0;i<9;i++){
 // CallName("Saugat");
 // CallName("Hari");
 
-// const something = function (){
+ const something = function (){
 
-// };
+ };
 
-// const valueFunction = ()=>{
+ const valueFunction = ()=>{
 
-// };
+ };
 // arrow function
 /* function CallName(name){ //
     console.log(`My name is ${name}`);
@@ -149,48 +149,47 @@ for(let i=0;i<9;i++){
 
 // IIFE
 
-// ((name)=>{
-//     console.log(`My name is ${name}`);
-// })("Hari")
-// (function (){
-//     console.log("Something is here")
-// })()
+((name)=>{
+    console.log(`My name is ${name}`);
+})("Hari")
+(function (){
+    console.log("Something is here")
+})()
 // Callback;
 
-// const checkEven = (number)=>{
-//     const value = number % 2 == 0 ? true : false;
-//     return value; 
-// }
+const checkEven = (number)=>{
+    const value = number % 2 == 0 ? true : false;
+    return value; 
+}
 
-// function printMessage(IsEven,num){
-//     IsEven(num) ? console.log(`${num} is even`) : console.log(`${num} is odd`);
-// };
+function printMessage(IsEven,num){
+    IsEven(num) ? console.log(`${num} is even`) : console.log(`${num} is odd`);
+};
 
-// printMessage(checkEven,23);
-
+printMessage(checkEven,23);
 
 // Scope of varibale
 
 // let name = "Saugat";
 
-// let name = "saugat"
-// if(true){
-//     let name = "Nike";
-//     console.log(name);
-// }
-// console.log(name) // --> saugat
+let name = "saugat"
+if(true){
+    let name = "Nike";
+    console.log(name);
+}
+console.log(name) // --> saugat
 
-// let counter = 0;
+let counter = 0;
 
-// function Count(){
-//     let counter = 0;
-//     counter += 1;
-//     console.log(counter)
-// }
+function Count(){
+    let counter = 0;
+    counter += 1;
+    console.log(counter)
+}
 
-// Count(); //1
-// Count(); //2
-// Count(); //3
+Count(); //1
+Count(); //2
+Count(); //3
 
 // function 4 digit otp return
 
