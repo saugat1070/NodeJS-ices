@@ -48,26 +48,32 @@ List of Work:
 
 function addProduct(){
     let name = r1.question("Enter the name of product:");
-    let category = r1.question("Enter the category of product");
+    let category = r1.question("Enter the category of product:");
     let price = r1.question("Enter the price of product:");
-    // inventory.push({
-    //     name:name,
-    //     category:category,
-    //     price:price
-    // })
     inventory.push({name,category,price});
     console.log("Product Added Successfully");
     console.log("=".repeat(50));
 }
 
+// View Inventory
+function viewInventory(){
+  console.log("current inventory");
+  console.log(`Name ${" ".repeat(10)} Category ${" ".repeat(10)} Price`);
+  inventory.forEach((myObj)=>{
+  console.log(`${myObj.name} ${" ".repeat(10)} ${myObj.category} ${" ".repeat(10)} ${myObj.price}`);
+  })
+}
 
 
-
-const condition = true;
-while(condition){
+while(true){
     console.log(`${"=".repeat(50)} Inventory Management Project ${"=".repeat(50)}`);
     console.log("\n Items:");
-    console.log("1.Add Product");
+    console.log("1. Add Product");
+    console.log("2. Show invetory items");
+    console.log("3. Remove item from inventory")
+    console.log("4. Filter By Category");
+    console.log("5. Filter by price limitation");
+    console.log("0. Exit");
 
 
     const choice = r1.question("Choose an option:");
@@ -76,7 +82,10 @@ while(condition){
             addProduct();
             break;
         }
-        case 0:
+        case "2":
+          viewInventory();
+          break;
+        case "0":
             console.log("Existing...");
             process.exit(0);
         default:
