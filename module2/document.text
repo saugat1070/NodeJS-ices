@@ -1,0 +1,3 @@
+project create garnu cha --> npm init
+project run garnu cha --> npm start
+server chae automatically restart --> node --watch index.js
