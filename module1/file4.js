@@ -52,7 +52,7 @@ async function fetchData(){
     // const res = await axios("https://jsonplaceholder.typicode.com/todos");
     // console.log(res);
     console.log("Step-1");
-    await setTimeout(()=>{
+    setTimeout(()=>{
         console.log("Step-2");
     },5000);
     console.log("step-3");
