@@ -7,7 +7,7 @@ import cors from "cors"
 const app = express();
 
 // console.log("Hey its me Saugat"); // for server auto restart --> nodemailer // node --watch index.js
-const db_url = "mongodb+srv://saugatgiri1070_db_user:saugat1070@cluster0.u72k4tb.mongodb.net/?appName=Cluster0";
+const db_url = ""; // eya mongodb ko connection string halnu parcha hae
 mongoose.connect(db_url).then(()=>{
     console.log("Database connection success");
     console.log(`Database host:${mongoose.connection.host}`)
