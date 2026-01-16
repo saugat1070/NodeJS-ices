@@ -1,8 +1,10 @@
 // ODM operation --> Model
 import UserModel from "../Model/user.model.js";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import Env from "../Config/envConfig.js";
 // Take a request from user --> Controller
 export const registerUser = async(req,res)=>{
-    console.log(req.body)
     const {name,email,password} = req.body;
     if(!name || !email || !password){
         return res.status(400).json({message:"Please provide name,email,password"});
@@ -14,10 +16,12 @@ export const registerUser = async(req,res)=>{
             message: "User with this email is already created"
         });
     }
-    //TODO: malai password hash garna baaki cha
+    // hash the password
+    const hashedPassword = bcrypt.hashSync(password,10); // saltRound
+    // Save into Database
     const userCreate = await UserModel.create({
         email : email,
-        password : password,
+        password : hashedPassword,
         name : name
     });
     if(!userCreate){
@@ -27,5 +31,24 @@ export const registerUser = async(req,res)=>{
         message:"User created"
      });
 }
-// hash the password
-// Save into Database
+
+export const loginUser = async(req,res)=>{
+    const {email,password} = req.body;
+    if(!email || !password){
+        return res.status(400).json({message:"Email and password must be provided"});
+    }
+    // check if user exist or not
+    const user = await UserModel.findOne({email:email});
+    if(!user){
+        return res.status(404).json({message:"Account is not found,please register first."});
+    }
+    const isPasswordTrue = bcrypt.compareSync(password,user.password);
+    if(!isPasswordTrue){
+        return res.status(401).json({message:"Incorrect password"});
+    }
+    const token = jwt.sign({id:user._id},Env.jwtSecret,{expiresIn:"1d"});
+    return res.status(200).json({
+        message:"Login successfull",
+        token : token
+    });
+}

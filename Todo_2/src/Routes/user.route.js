@@ -1,5 +1,6 @@
 import { Router } from "express";
-import { registerUser } from "../Controller/user.controller.js";
+import { registerUser,loginUser } from "../Controller/user.controller.js";
+
 
 
 const userRouter = Router();
@@ -8,6 +9,6 @@ const userRouter = Router();
 // userRouter.route("/url").http_method()
 
 userRouter.post("/create",registerUser);  // http://localhost:3000/api/create
-
+userRouter.post("/login",loginUser);  // http://localhost:3000/api/login
 
 export default userRouter;
