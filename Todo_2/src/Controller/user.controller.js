@@ -52,3 +52,14 @@ export const loginUser = async(req,res)=>{
         token : token
     });
 }
+
+// export const loginWithGoogle = async(req,res)=>{
+//     const CLIENT_ID = Env.google_client_id;
+//     const REDIRECT_URI = Env.google_redirect_uri;
+//     const url = `https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&scope=profile%20email`;
+//     res.redirect(url);
+// }
+
+// export const handleGoogleCallback = async (req,res)=>{
+
+// }

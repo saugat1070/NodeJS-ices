@@ -9,4 +9,4 @@ dbConnection();
 app.use(express.json());
 
 
-app.use("/api",userRouter) // http://localhost:3000/api
+app.use("/",userRouter);
